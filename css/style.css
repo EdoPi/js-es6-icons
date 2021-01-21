@@ -2,4 +2,17 @@
   width: 800px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.icone{
+  font-size: 50px;
+  padding-bottom: 15px;
+}
+
+.icon-wrapper{
+  padding-top: 20px;
+  margin-right: 20px;
+  text-align: center;
 }

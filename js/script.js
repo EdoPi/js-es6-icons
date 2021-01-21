@@ -110,9 +110,10 @@ const myIcons = [
 myIcons.forEach((item) => {
   const {nome, prefisso, famiglia} = item;
 
-  iconsContainer.innerHTML = `
-  <div>
-    <i class="${famiglia} ${prefisso}${nome}" style=""></i>
+  iconsContainer.innerHTML += `
+  <div class="icon-wrapper">
+    <i class="${famiglia} ${prefisso}${nome} icone" style=""></i>
+    <div>${nome.toUpperCase()}</div>
   </div>
   `
 });
