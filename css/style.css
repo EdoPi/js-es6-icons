@@ -1,9 +1,42 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: content-box;
+}
+
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+label{
+  font-weight: bold;
+}
+
+
+.select-container{
+  margin: 0 auto;
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  padding: 50px; 0;
+  background-color: darkblue;
+  color: white;
+}
+
+.selector{
+  margin-left: 20px;
+}
+
 #icons-container{
   width: 800px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   margin: 0 auto;
+  background-color: #eee;
+  padding-top: 20px;
+  font-weight: bold;
 }
 
 .icone{
@@ -12,7 +45,12 @@
 }
 
 .icon-wrapper{
-  padding-top: 20px;
-  margin-right: 20px;
+  background-color: white;
+  width: calc(800px/6);
+  padding: 20px;
+  margin-bottom: 20px;
   text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px 2px #ccc;
 }

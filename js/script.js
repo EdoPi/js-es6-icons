@@ -109,16 +109,7 @@ const myIcons = [
 
 const iconsColor = ['blue', 'orange', 'purple'];
 
-myIcons.forEach((item) => {
-  const {nome, prefisso, famiglia} = item;
 
-  iconsContainer.innerHTML += `
-  <div class="icon-wrapper">
-    <i class="${famiglia} ${prefisso}${nome} icone" style=""></i>
-    <div>${nome.toUpperCase()}</div>
-  </div>
-  `
-});
 
 
 /*
@@ -143,6 +134,20 @@ myIcons.forEach((item) => {
   }
 });
 
+
+/*
+myIcons.forEach((item) => {
+  const {nome, prefisso, famiglia, color} = item;
+
+  iconsContainer.innerHTML += `
+  <div class="icon-wrapper">
+    <i class="${famiglia} ${prefisso}${nome} icone" style=" color:${color}"></i>
+    <div>${nome.toUpperCase()}</div>
+  </div>
+  `
+})*/
+
+;
 /*
 Milestone 3:
 - Aggiungere una select per filtrare le icone in base al tipo.
@@ -150,3 +155,42 @@ Milestone 3:
 ogni volta che cambia il valore selezionato,
 visualizzare le icone corrispondenti.
 */
+const selector = document.getElementById('select-form');
+
+
+type.forEach((item) => {  // element è la stringa color
+  selector.innerHTML += `
+    <option value="${item}">${item.toUpperCase()}</option>
+  `
+});
+
+const selectorJq = $('.selector');
+
+
+const animal = myIcons.filter((element) =>{
+  return element.tipo ==='animal'
+});
+const user = myIcons.filter((element) =>{
+  return element.tipo ==='user'
+});
+const fruti = myIcons.filter((element) =>{
+  return element.tipo ==='fruit'
+});
+
+
+selectorJq.change(function() {
+  let valore = $(this).val();
+  myIcons.forEach((item) => {
+    const {nome, prefisso, famiglia, color} = item;
+    if (item.tipo === valore ) {
+
+      iconsContainer.innerHTML += `
+      <div class="icon-wrapper">
+        <i class="${famiglia} ${prefisso}${nome} icone" style=" color:${color}"></i>
+        <div>${nome.toUpperCase()}</div>
+      </div>
+      `
+    }
+  });
+
+});
