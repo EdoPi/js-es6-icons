@@ -167,6 +167,7 @@ type.forEach((item) => {  // element è la stringa color
 const selectorJq = $('.selector');
 
 
+/*
 const animal = myIcons.filter((element) =>{
   return element.tipo ==='animal'
 });
@@ -175,14 +176,31 @@ const user = myIcons.filter((element) =>{
 });
 const fruti = myIcons.filter((element) =>{
   return element.tipo ==='fruit'
-});
+});*/
+
+
 
 
 selectorJq.change(function() {
-  let valore = $(this).val();
-  myIcons.forEach((item) => {
+
+  iconsContainer.innerHTML = '' ;
+
+  const valore = $(this).val();
+
+  let selctedArray = [];
+
+
+
+  if (valore !== 'all' ) {
+    selectedArray = myIcons.filter((element) =>{
+      return element.tipo === valore;
+    });
+  }else{
+    selectedArray = myIcons;
+  }
+
+  selectedArray.forEach((item) => {
     const {nome, prefisso, famiglia, color} = item;
-    if (item.tipo === valore ) {
 
       iconsContainer.innerHTML += `
       <div class="icon-wrapper">
@@ -190,7 +208,9 @@ selectorJq.change(function() {
         <div>${nome.toUpperCase()}</div>
       </div>
       `
-    }
+
   });
 
 });
+
+selectorJq.change()
